@@ -4,7 +4,8 @@ from django.shortcuts import render
 def show_main(request):
     context = {
         'Name': 'World Lock',
-        'Amount': '5'
+        'Amount': '5',
+        'Description': 'A currency that used usually on a trading'
     }
 
     return render(request, "main.html", context)
