@@ -7,7 +7,7 @@ Tautan aplikasi: https://growtopia-shop.adaptable.app/
    a. Melakukan pembuatan project baru melalui microsoft powershell
    b. Menggunakan command "startapp main" untuk membuat aplikasi pada proyek yang dibuat
 
-2. [INI BAGAN](
+2. [INI BAGAN](tugas2.drawio)
 
 3. Karena, dengan menggunakan virtual environment, kita dapat melakukan instalasi ataupun menggunakan dependencies pada proyek kita dengan lebih mudah
    Kita bisa saja tanpa menggunakan virtual environment. Akan tetapi, dalam konteks ini Django akan menggunakan dependency dari instalasi Python yang ada di 
