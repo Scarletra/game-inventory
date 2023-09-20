@@ -23,8 +23,8 @@ Tautan aplikasi: https://growtopia-shop.adaptable.app/
    c. Menambahkan path baru yang disesuaikan dengan bagian yang ingin kita tampilkan pada website di file urls.py yang ada di dalam direktori main
 
 
-1. ![html](https://github.com/Scarletra/game-inventory/assets/112821721/b761da56-2eb8-4d46-903c-2f1944f1097e)
-2. ![xml](https://github.com/Scarletra/game-inventory/assets/112821721/2bdf72da-d58c-4df9-a11e-851fdeeb66c1)
-3. ![json](https://github.com/Scarletra/game-inventory/assets/112821721/c99a2502-99b8-4df2-bd23-a9d4f80bdd97)
-4. ![xml_byid](https://github.com/Scarletra/game-inventory/assets/112821721/b134552e-90d0-43f9-ade5-346b2aa9977a)
-5. ![json_byid](https://github.com/Scarletra/game-inventory/assets/112821721/cdc4b4c9-943a-448a-a9fc-c4f5b012d5ba)
+1. ![image](https://github.com/Scarletra/game-inventory/assets/112821721/b761da56-2eb8-4d46-903c-2f1944f1097e)
+2. ![image](https://github.com/Scarletra/game-inventory/assets/112821721/2bdf72da-d58c-4df9-a11e-851fdeeb66c1)
+3. ![image](https://github.com/Scarletra/game-inventory/assets/112821721/c99a2502-99b8-4df2-bd23-a9d4f80bdd97)
+4. ![image](https://github.com/Scarletra/game-inventory/assets/112821721/b134552e-90d0-43f9-ade5-346b2aa9977a)
+5. ![image](https://github.com/Scarletra/game-inventory/assets/112821721/cdc4b4c9-943a-448a-a9fc-c4f5b012d5ba)
