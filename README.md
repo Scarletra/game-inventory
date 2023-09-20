@@ -17,15 +17,14 @@ Tautan aplikasi: https://growtopia-shop.adaptable.app/
 3. JSON sering digunakan dalam pertukaran data antara aplikasi web modern karena sifatnya yang ringan, mudah dibaca, dan terintegrasi dengan baik dengan 
    bahasa JavaScript.
 
-4. a.
+4. a. Membuat folder _templates_ yang isinya adalah base.html sebagai template untuk file html lainnya. Lalu, buat file forms.py
    b. Menambahkan semua fungsi yang dibutuhkan pada file views.py. Sebagai contoh funct show_xml yang akan mengambil semua data dan ditampilkan dalam bentuk 
       xml. Contoh lain adalah funct show_xml_by_id yang akan mengambil data berdasarkan id dari objek yang disimpan dan akan ditampilkan di web
    c. Menambahkan path baru yang disesuaikan dengan bagian yang ingin kita tampilkan pada website di file urls.py yang ada di dalam direktori main
 
 
-1. [/create_product] (html.jpg)
-2. [/json] (json.jpg)
-3. [/xml] (xml.jpg)
-4. [/json/<int:id>] (json_byid.jpg)
-5. [/xml/<int:id>] (xml_byid.jpg)
-6.    
+1. ![html](https://github.com/Scarletra/game-inventory/assets/112821721/b761da56-2eb8-4d46-903c-2f1944f1097e)
+2. ![xml](https://github.com/Scarletra/game-inventory/assets/112821721/2bdf72da-d58c-4df9-a11e-851fdeeb66c1)
+3. ![json](https://github.com/Scarletra/game-inventory/assets/112821721/c99a2502-99b8-4df2-bd23-a9d4f80bdd97)
+4. ![xml_byid](https://github.com/Scarletra/game-inventory/assets/112821721/b134552e-90d0-43f9-ade5-346b2aa9977a)
+5. ![json_byid](https://github.com/Scarletra/game-inventory/assets/112821721/cdc4b4c9-943a-448a-a9fc-c4f5b012d5ba)
