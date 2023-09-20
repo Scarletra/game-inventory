@@ -20,4 +20,12 @@ Tautan aplikasi: https://growtopia-shop.adaptable.app/
 4. a.
    b. Menambahkan semua fungsi yang dibutuhkan pada file views.py. Sebagai contoh funct show_xml yang akan mengambil semua data dan ditampilkan dalam bentuk 
       xml. Contoh lain adalah funct show_xml_by_id yang akan mengambil data berdasarkan id dari objek yang disimpan dan akan ditampilkan di web
-   c. Menambahkan path baru yang disesuaikan dengan bagian yang ingin kita tampilkan pada website di file urls.py yang ada di dalam direktori main 
+   c. Menambahkan path baru yang disesuaikan dengan bagian yang ingin kita tampilkan pada website di file urls.py yang ada di dalam direktori main
+
+
+1. [/create_product] (html.jpg)
+2. [/json] (json.jpg)
+3. [/xml] (xml.jpg)
+4. [/json/<int:id>] (json_byid.jpg)
+5. [/xml/<int:id>] (xml_byid.jpg)
+6.    
