@@ -16,4 +16,8 @@ Tautan aplikasi: https://growtopia-shop.adaptable.app/
    + Tidak mudah dicustomize, form ini cukup sulit jika ingin kita modifikasi secara lanjut
   
 2. + **AUTENTIKASI**
-     Autentikasi adalah proses verifikasi pengguna (user) yang mencoba mengakses sebuah laman/aplikasi
+     Autentikasi adalah proses verifikasi pengguna (user) yang mencoba mengakses sebuah laman/aplikasi. Tujuan dari autentikasi ini adalah untuk mengecek 
+     apakah pengguna yang mencoba mengakses sudah terdaftar atau tidak. Biasanya autentikasi melibatkan pengecekan username, password, dsb. <br><br>
+   + **AUTORISASI**
+     Autorisasi adalah proses
+   
