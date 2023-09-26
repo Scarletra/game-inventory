@@ -103,7 +103,7 @@ Tautan aplikasi: https://growtopia-shop.adaptable.app/
         ```python
            ...
            def show_main(request):
-               products = Product.objects.filter(user=request.user)
+               item = Item.objects.filter(user=request.user)
 
                context = {
                   'name': request.user.username,
