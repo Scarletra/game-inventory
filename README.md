@@ -1,6 +1,10 @@
 # game-inventory
 Tugas 3 PBP
 
+Name: Fernando Valentino Sitinjak
+Class: PBP F
+Student ID: 2206081332
+
 Tautan aplikasi: https://growtopia-shop.adaptable.app/
 
 1. UserCreationForm adalah form yang disediakan oleh Django untuk mempermudah dalam mengimplementasikan sebuah formulir pendaftaran sebuah akun user pada 
