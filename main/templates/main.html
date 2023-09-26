@@ -1,38 +1,55 @@
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growtopia Shop Page</title>
+</head>
+<body>
+    {% block content %}
+
+    <div class="body">
+        <h1>Growtopia Shop Page</h1>
+
+        <h2>Name:</h2>
+        <p>{{Name}}</p>
+
+        <h2>Amount:</h2>
+        <p>{{Amount}}</p>
+
+        <h2>Description:</h2>
+        <p>{{Description}}</p>
+
+        <h2>Current data:</h2>
+        <p>{{Message}}</p>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+            </tr>
+
+        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+        {% for item in Items %}
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.amount}}</td>
+                <td>{{item.description}}</td>
+            </tr>
+        {% endfor %}
+        </table>
+
+        <br />
+
+        <a href="{% url 'main:create_product' %}"><button>Add New Product</button></a>
+        <h5>Sesi terakhir login: {{ last_login }}</h5>
+        <a href="{% url 'main:logout' %}"><button>Logout</button></a>
+    </div>
     
-    <h1>Growtopia Shop Page</h1>
-
-    <h2>Name:</h2>
-    <p>{{Name}}</p>
-
-    <h2>Amount:</h2>
-    <p>{{Amount}}</p>
-
-    <h2>Description:</h2>
-    <p>{{Description}}</p>
-
-    <h2>Current data:</h2>
-    <p>{{Message}}</p>
-
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Description</th>
-        </tr>
-
-    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
-    {% for item in Items %}
-        <tr>
-            <td>{{item.name}}</td>
-            <td>{{item.amount}}</td>
-            <td>{{item.description}}</td>
-        </tr>
-    {% endfor %}
-    </table>
-
-    <br />
-
-    <a href="{% url 'main:create_product' %}"><button>Add New Product</button></a>
 {% endblock content %}
+</body>
+</html>
+
+
