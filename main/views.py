@@ -26,8 +26,8 @@ def show_main(request):
 
     context = {
         'Name': request.user.username,
-        'Amount': '5',
-        'Description': 'A currency that used usually on a trading',
+        'Amount': 'PBP F',
+        'Description': '2206081332',
         'Message': f'You have {sum_of_product} items in your shopping list',
         'Items': items,
         'last_login': request.COOKIES['last_login'],
@@ -95,3 +95,25 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+def decrement_item(request, id):
+    item = Item.objects.get(pk=id, user=request.user)
+    item.amount -= 1
+    if item.amount > 0:
+        item.save()
+    else:
+        item.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+def increment_item(request, id):
+    item = Item.objects.get(pk=id, user=request.user)
+    item.amount += 1
+    item.save()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+
+def delete_item(request, id):
+    item = Item.objects.get(pk=id, user=request.user)
+    item.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
+

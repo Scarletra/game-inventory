@@ -11,13 +11,13 @@
     <div class="body">
         <h1>Growtopia Shop Page</h1>
 
-        <h2>Name:</h2>
+        <h2>Owner:</h2>
         <p>{{Name}}</p>
 
-        <h2>Amount:</h2>
+        <h2>Class:</h2>
         <p>{{Amount}}</p>
 
-        <h2>Description:</h2>
+        <h2>Student ID:</h2>
         <p>{{Description}}</p>
 
         <h2>Current data:</h2>
@@ -26,8 +26,9 @@
         <table>
             <tr>
                 <th>Name</th>
-                <th>Price</th>
+                <th>Amount</th>
                 <th>Description</th>
+                <th>Add/Remove item</th>
             </tr>
 
         {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
@@ -37,6 +38,11 @@
                 <td>{{item.name}}</td>
                 <td>{{item.amount}}</td>
                 <td>{{item.description}}</td>
+                <td> 
+                    <a href="{% url 'main:decrement_item' item.id %}"><button>-</button></a>
+                    <a href="{% url 'main:delete_item' item.id %}"><button>Delete</button></a>
+                    <a href="{% url 'main:increment_item' item.id %}"><button>+</button></a>
+                </td>
             </tr>
         {% endfor %}
         </table>
