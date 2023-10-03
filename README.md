@@ -1,5 +1,5 @@
 # game-inventory
-Tugas 3 PBP
+Tugas 5 PBP
 
 Name: Fernando Valentino Sitinjak
 Class: PBP F
@@ -7,121 +7,52 @@ Student ID: 2206081332
 
 Tautan aplikasi: https://growtopia-shop.adaptable.app/
 
-1. UserCreationForm adalah form yang disediakan oleh Django untuk mempermudah dalam mengimplementasikan sebuah formulir pendaftaran sebuah akun user pada 
-   website kita. Form ini by default sudah menyediakan field pendaftaran akun user baru pada umumnya seperti field username dan password. Tidak hanya itu, 
-   field yang disediakan juga sudah diatur dengan validasi bawaan yang mengatur pengisian username dan passwordnya.
+1. + Universal selector (*), berguna untuk memilih semua elemen pada file. Waktu yang tepat untuk menggunakannya adalah pada saat ingin memodifikasi file secara keseluruhan/global.
+   + Type selector (<div>, <h1>, <p>, dll), berguna untuk memilih elemen sesuai tipe. Waktu yang tepat digunakan adalah saat ingin memodifikasi tipe tertentu.
+   + Class selector (class="" -> .classname), berguna untuk memilih elemen sesuai dengan nama class yang ingin dimodifikasi. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen dengan nama kelas tertentu yang sudah ditentukan.
+   + ID selector (id="" -> #id), berguna untuk memilih elemen sesuai dengan ID unik yang sudah ditentukan. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen dengan ID yang diinginkan.
+   + Attribute selector ("[attribute]"), berguna untuk memilih elemen sesuai atribut atau nilai atribut yang dipilih. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen dengan atribut atau nilai atribut tertentu.
+   + Descendant selector ('parent child'), berguna untuk memilih elemen anak yang ada dalam element parent. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen anak yang ada di dalam elemen parent tertentu.
+   + Pseudo-class selector (":hover", dll), berguna untuk memilih elemen dengan kondisi tertentu. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen pada suatu kondisi tertentu.
 
-   Kelebihan:
-   + Mudah digunakan, karena ini merupakan form bawaan yang sudah siap pakai yang disediakan oleh Django
-   + Fleksibilitas cukup tinggi, karena kita dapat mengatur komponen-komponen yang ada pada form ini
+2. + <html>, tag yang berfungsi menandakan awal dan akhir dari suatu file HTML. Semua elemen HTML yang kita ingin tampilkan akan dibuat di dalam tag ini.
+   + <head>, tag yang berisikan informasi tentang dokumen kita, seperti judul laman, referensi file, dan lainnya.
+   + <body>, tag yang berisikan elemen yang akan ditampilkan di laman web kita.
+   + <a>, tag untuk menandakan teks yang mereferensikan ke suatu URL.
+   + <p>, tag untuk menampilkan teks dalam bentuk paragraf.
+   + <h1, ...., h5>, tag untuk menampilkan teks dalam ukuran tertentu.
+   + <img>, tag yang berguna untuk menampilkan sebuah gambar.
+   + <ul>, tag untuk membuat daftar yang tidak memiliki urutan (unordered list).
+   + <li>, tag untuk membuat daftar dengan sebuah urutan (ordered list).
+   + <table>, tag untuk membuat suatu table dengan baris dan kolom.
 
-   Kekurangan:
-   + Perlu autentikasi lanjutan, form ini hanya berguna untuk membuat sebuah user baru dan perlu menambahkan fitur lainnya seperti login, logout, dsb
-   + Tidak mudah dicustomize, form ini cukup sulit jika ingin kita modifikasi secara lanjut
-  
-2. + **AUTENTIKASI**
-     Autentikasi adalah proses verifikasi pengguna (user) yang mencoba mengakses sebuah laman/aplikasi. Tujuan dari autentikasi ini adalah untuk mengecek 
-     apakah pengguna yang mencoba mengakses sudah terdaftar atau tidak. Biasanya autentikasi melibatkan pengecekan username, password, dsb. <br><br>
-   + **AUTORISASI**
-     Autorisasi adalah proses mengatur hak akses pengguna yang telah melewati tahap autentikasi. Tujuan dari adanya autorisasi adalah untuk membatasi hak akses user yang sudah login ke website atau aplikasi kita.
+3. Margin :
 
-3. Cookies adalah data yang berisikan informasi pengguna yang dapat diakses oleh  website. Cookies itu sendiri memiliki batas waktu tertentu dan akan secara otomotasi setelah batas waktu tercapai. Django mengambil menyediakan metode bawaan untuk mengatur dan mengambil cookies.
+   Padding :
 
+4. **Bootstrap**
+   Bootstrap merupakan framework yang lebih mudah digunakan bagi orang yang kurang memiliki pengalaman dalam menggunakan CSS. Bootstrap menyediakan banyak komponen yang dapat disesuaikan dengan mudah. Namun, jika ingin memodifikasi apa yang sudah disediakan, diperlukan adanya kustomisasi CSS lebih lanjut.
 
-4. Penggunaan cookies dalam suatu website pada umumnya aman. Namun, perlu diperhatikan bahwa masih ada risiko yang dapat mengancam keamanan data pada cookies, seperti kebocoran data, penyalahgunaan data dari cookies, dan hal lainnya. Hal ini dapat diatasi dengan mengenkripsi data cookies dengan baik  
+   **Tailwind CSS**
+   Tailwind CSS merupakan framework yang mengutamakan utilitas, sehingga hal ini menyebabkan kita menjadi lebih fleksibel dalam membuat atau memodifikasi sesuatu, tetapi memerlukan pengetahuan CSS yang luas. Kita juga dapat dengan mudah melakukan kustomisasi terhadap komponen-komponen yang ingin kita modifikasi.
 
-5. + Menambahkan fungsi register, login, dan logout pada file views.py 
-     1. Register
+5. + Kustomisasi halaman login, register, dan tambah inventori
 
-     ```python
-      from django.shortcuts import redirect
-      from django.contrib.auth.forms import UserCreationForm
-      from django.contrib import messages  
+      1. Menambahkan link yang menunjuk ke file CSS yang bersesuaiaan
+      ```html
+      <link rel="stylesheet" href="{% static 'login.css' %}">
+      <link rel="stylesheet" href="{% static 'register.css' %}">
+      <link rel="stylesheet" href="{% static 'myfirst.css' %}">
+      ```
 
+      2. Mengatur isi CSS sesuai dengan keinginan kita e.g login.css
+      ```css
+      ## login.css file
+      * {
+         background-color: #74FCB8;
+      }
+      ```
 
-      def register(request):
-         form = UserCreationForm()
+      3. Kustomisasi halaman daftar item menjadi lebih menarik dengan menggunakan Card
 
-         if request.method == "POST":
-            form = UserCreationForm(request.POST)
-            if form.is_valid():
-                  form.save()
-                  messages.success(request, 'Your account has been successfully created!')
-                  return redirect('main:login')
-         context = {'form':form}
-         return render(request, 'register.html', context)
-     ```
-
-     2. Login dan logout
-
-     ```python
-        from django.contrib.auth import authenticate, login
-        from django.contrib.auth import logout
-
-        def login_user(request):
-            if request.method == 'POST':
-               username = request.POST.get('username')
-               password = request.POST.get('password')
-               user = authenticate(request, username=username, password=password)
-               if user is not None:
-                     login(request, user)
-                     return redirect('main:show_main')
-             else:
-                     messages.info(request, 'Sorry, incorrect username or password. Please try again.')
-            context = {}
-            return render(request, 'login.html', context)    
-
-         def logout_user(request):
-            logout(request)
-            return redirect('main:login')
-     ```
-
-   + Membuat file login.html dan register.html pada direktori main/templates
-   + Menambahkan path baru dari file html yang telah dibuat
-     
-     ```python
-        from main.views import login_user
-        from main.views import logout_user
-
-        ...
-        path('register/', register, name='register'), 
-        path('login/', login_user, name='login'),
-        path('logout/', logout_user, name='logout'),
-        ...
-     ```
-
-   + Membuat dua akun user dengan melakukan register pada app, lalu menambahkan   tiga data yang berbeda dengan cara menambahkan item baru
-   + Menghubungkan item dengan user
-     
-     1. Menambahkan potongan kode pada file models.py
-        ```python
-            ...
-            from django.contrib.auth.models import User
-            ...
-            class Product(models.Model):
-               user = models.ForeignKey(User, on_delete=models.CASCADE)
-               ...
-        ```
-
-     2. Mengubah function create_product dan show_main pada views.py
-        ```python
-           ...
-           def show_main(request):
-               item = Item.objects.filter(user=request.user)
-
-               context = {
-                  'name': request.user.username,
-               ...
-
-           def create_product(request):
-               form = ProductForm(request.POST or None)
-
-               if form.is_valid() and request.method == "POST":
-                  product = form.save(commit=False)
-                  product.user = request.user
-                  product.save()
-                  return HttpResponseRedirect(reverse('main:show_main'))
-            ...
-        ```
-
-   
+      Mengganti isi for loop dari Items yang awalnya menggunakan tabel menjadi bentuk Card

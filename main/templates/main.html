@@ -1,9 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Growtopia Shop Page</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body>
     {% block content %}
@@ -22,6 +24,42 @@
 
         <h2>Current data:</h2>
         <p>{{Message}}</p>
+
+    <div class="card">
+        <div class="card-header">
+            Products
+        </div>
+    <div class="card-body">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th>Add/Remove item</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in Items %}
+                    <tr>
+                        <td>{{item.name}}</td>
+                        <td>{{item.amount}}</td>
+                        <td>{{item.description}}</td>
+                        <td> 
+                            <a href="{% url 'main:decrement_item' item.id %}"><button>-</button></a>
+                            <a href="{% url 'main:delete_item' item.id %}"><button>Delete</button></a>
+                            <a href="{% url 'main:increment_item' item.id %}"><button>+</button></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+
+
+
 
         <table>
             <tr>
@@ -49,9 +87,9 @@
 
         <br />
 
-        <a href="{% url 'main:create_product' %}"><button>Add New Product</button></a>
+        <a class="button-main" href="{% url 'main:create_product' %}"><button>Add New Product</button></a>
         <h5>Sesi terakhir login: {{ last_login }}</h5>
-        <a href="{% url 'main:logout' %}"><button>Logout</button></a>
+        <a class="button-main" href="{% url 'main:logout' %}"><button>Logout</button></a>
     </div>
     
 {% endblock content %}

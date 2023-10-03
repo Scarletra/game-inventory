@@ -1,0 +1,42 @@
+* {
+    background-color: #44F69D;
+    margin: 0;
+    padding: 0;
+}
+
+.button-main:hover {
+    background-color: #B50126;
+    transition: .5s ease-in-out;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+.card-header {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+}
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+}
+
+
+.custom-table th, .custom-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.custom-table th {
+    background-color: #f2f2f2;
+}
+
