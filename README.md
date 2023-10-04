@@ -15,16 +15,16 @@ Tautan aplikasi: https://growtopia-shop.adaptable.app/
    + Descendant selector ('parent child'), berguna untuk memilih elemen anak yang ada dalam element parent. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen anak yang ada di dalam elemen parent tertentu.
    + Pseudo-class selector (":hover", dll), berguna untuk memilih elemen dengan kondisi tertentu. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen pada suatu kondisi tertentu.
 
-2. + <html>, tag yang berfungsi menandakan awal dan akhir dari suatu file HTML. Semua elemen HTML yang kita ingin tampilkan akan dibuat di dalam tag ini.
-   + <head>, tag yang berisikan informasi tentang dokumen kita, seperti judul laman, referensi file, dan lainnya.
-   + <body>, tag yang berisikan elemen yang akan ditampilkan di laman web kita.
-   + <a>, tag untuk menandakan teks yang mereferensikan ke suatu URL.
-   + <p>, tag untuk menampilkan teks dalam bentuk paragraf.
-   + <h1, ...., h5>, tag untuk menampilkan teks dalam ukuran tertentu.
-   + <img>, tag yang berguna untuk menampilkan sebuah gambar.
-   + <ul>, tag untuk membuat daftar yang tidak memiliki urutan (unordered list).
-   + <li>, tag untuk membuat daftar dengan sebuah urutan (ordered list).
-   + <table>, tag untuk membuat suatu table dengan baris dan kolom.
+2. + `<html>`, tag yang berfungsi menandakan awal dan akhir dari suatu file HTML. Semua elemen HTML yang kita ingin tampilkan akan dibuat di dalam tag ini.
+   + `<head>`, tag yang berisikan informasi tentang dokumen kita, seperti judul laman, referensi file, dan lainnya.
+   + `<body>`, tag yang berisikan elemen yang akan ditampilkan di laman web kita.
+   + `<a>`, tag untuk menandakan teks yang mereferensikan ke suatu URL.
+   + `<p>`, tag untuk menampilkan teks dalam bentuk paragraf.
+   + `<h1, ...., h5>`, tag untuk menampilkan teks dalam ukuran tertentu.
+   + `<img>`, tag yang berguna untuk menampilkan sebuah gambar.
+   + `<ul>`, tag untuk membuat daftar yang tidak memiliki urutan (unordered list).
+   + `<li>`, tag untuk membuat daftar dengan sebuah urutan (ordered list).
+   + `<table>`, tag untuk membuat suatu table dengan baris dan kolom.
 
 3. Margin :
 
