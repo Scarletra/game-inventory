@@ -8,7 +8,7 @@ Student ID: 2206081332
 Tautan aplikasi: https://growtopia-shop.adaptable.app/
 
 1. + Universal selector (*), berguna untuk memilih semua elemen pada file. Waktu yang tepat untuk menggunakannya adalah pada saat ingin memodifikasi file secara keseluruhan/global.
-   + Type selector (<div>, "<h1>", "<p>", dll), berguna untuk memilih elemen sesuai tipe. Waktu yang tepat digunakan adalah saat ingin memodifikasi tipe tertentu.
+   + Type selector (`<div>`, `<h1>`, `<p>`, dll), berguna untuk memilih elemen sesuai tipe. Waktu yang tepat digunakan adalah saat ingin memodifikasi tipe tertentu.
    + Class selector (class="" -> .classname), berguna untuk memilih elemen sesuai dengan nama class yang ingin dimodifikasi. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen dengan nama kelas tertentu yang sudah ditentukan.
    + ID selector (id="" -> #id), berguna untuk memilih elemen sesuai dengan ID unik yang sudah ditentukan. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen dengan ID yang diinginkan.
    + Attribute selector ("[attribute]"), berguna untuk memilih elemen sesuai atribut atau nilai atribut yang dipilih. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen dengan atribut atau nilai atribut tertentu.
