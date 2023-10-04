@@ -26,9 +26,9 @@ Tautan aplikasi: https://growtopia-shop.adaptable.app/
    + <li>, tag untuk membuat daftar dengan sebuah urutan (ordered list).
    + <table>, tag untuk membuat suatu table dengan baris dan kolom.
 
-3. Margin :
+3. Margin : Ruang di luar border
 
-   Padding :
+   Padding : Ruang antara konten dengan bordernya
 
 4. **Bootstrap**
    Bootstrap merupakan framework yang lebih mudah digunakan bagi orang yang kurang memiliki pengalaman dalam menggunakan CSS. Bootstrap menyediakan banyak komponen yang dapat disesuaikan dengan mudah. Namun, jika ingin memodifikasi apa yang sudah disediakan, diperlukan adanya kustomisasi CSS lebih lanjut.
@@ -53,6 +53,43 @@ Tautan aplikasi: https://growtopia-shop.adaptable.app/
       }
       ```
 
-      3. Kustomisasi halaman daftar item menjadi lebih menarik dengan menggunakan Card
+      3. Kustomisasi halaman daftar item menjadi lebih menarik dengan menggunakan Bootstrap
+      ```css
+      ## main.css
+      * {
+         background-color: #44F69D;
+         margin: 0;
+         padding: 0;
+      }
 
-      Mengganti isi for loop dari Items yang awalnya menggunakan tabel menjadi bentuk Card
+      .button-main:hover {
+         background-color: #B50126;
+         transition: .5s ease-in-out;
+      }
+
+      .card {
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         margin: 20px;
+         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+         }
+
+      .custom-table {
+         width: 100%;
+         border-collapse: collapse;
+         margin: 0;
+         padding: 0;
+      }
+
+
+      .custom-table th, .custom-table td {
+         border: 1px solid #ccc;
+         padding: 8px;
+         text-align: left;
+      }
+
+      .custom-table th {
+         background-color: #f2f2f2;
+      }
+
+      ```

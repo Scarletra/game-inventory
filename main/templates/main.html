@@ -26,9 +26,6 @@
         <p>{{Message}}</p>
 
     <div class="card">
-        <div class="card-header">
-            Products
-        </div>
     <div class="card-body">
         <table class="custom-table">
             <thead>
@@ -57,33 +54,6 @@
     </div>
     </div>
 
-
-
-
-
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Amount</th>
-                <th>Description</th>
-                <th>Add/Remove item</th>
-            </tr>
-
-        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
-        {% for item in Items %}
-            <tr>
-                <td>{{item.name}}</td>
-                <td>{{item.amount}}</td>
-                <td>{{item.description}}</td>
-                <td> 
-                    <a href="{% url 'main:decrement_item' item.id %}"><button>-</button></a>
-                    <a href="{% url 'main:delete_item' item.id %}"><button>Delete</button></a>
-                    <a href="{% url 'main:increment_item' item.id %}"><button>+</button></a>
-                </td>
-            </tr>
-        {% endfor %}
-        </table>
 
         <br />
 

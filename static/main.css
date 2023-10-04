@@ -16,12 +16,6 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-.card-header {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 10px;
-}
-
 .custom-table {
     width: 100%;
     border-collapse: collapse;
