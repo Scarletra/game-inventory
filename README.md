@@ -1,5 +1,5 @@
 # game-inventory
-Tugas 5 PBP
+Tugas 6 PBP
 
 Name: Fernando Valentino Sitinjak
 Class: PBP F
@@ -7,89 +7,15 @@ Student ID: 2206081332
 
 Tautan aplikasi: https://growtopia-shop.adaptable.app/
 
-1. + Universal selector (*), berguna untuk memilih semua elemen pada file. Waktu yang tepat untuk menggunakannya adalah pada saat ingin memodifikasi file secara keseluruhan/global.
-   + Type selector (`<div>`, `<h1>`, `<p>`, dll), berguna untuk memilih elemen sesuai tipe. Waktu yang tepat digunakan adalah saat ingin memodifikasi tipe tertentu.
-   + Class selector (class="" -> .classname), berguna untuk memilih elemen sesuai dengan nama class yang ingin dimodifikasi. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen dengan nama kelas tertentu yang sudah ditentukan.
-   + ID selector (id="" -> #id), berguna untuk memilih elemen sesuai dengan ID unik yang sudah ditentukan. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen dengan ID yang diinginkan.
-   + Attribute selector ("[attribute]"), berguna untuk memilih elemen sesuai atribut atau nilai atribut yang dipilih. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen dengan atribut atau nilai atribut tertentu.
-   + Descendant selector ('parent child'), berguna untuk memilih elemen anak yang ada dalam element parent. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen anak yang ada di dalam elemen parent tertentu.
-   + Pseudo-class selector (":hover", dll), berguna untuk memilih elemen dengan kondisi tertentu. Waktu yang tepat digunakan adalah saat ingin memodifikasi elemen pada suatu kondisi tertentu.
+1. **Synchronus programming** adalah pemrograman yang mana sebuah tugas dapat dijalankan saat tugas-tugas sebelumnya sudah selesai dikerjakan. Singkatnya, untuk menjalankan suatu tugas, harus menunggu tugas lain terlebih dahulu dikerjakan
 
-2. + `<html>`, tag yang berfungsi menandakan awal dan akhir dari suatu file HTML. Semua elemen HTML yang kita ingin tampilkan akan dibuat di dalam tag ini.
-   + `<head>`, tag yang berisikan informasi tentang dokumen kita, seperti judul laman, referensi file, dan lainnya.
-   + `<body>`, tag yang berisikan elemen yang akan ditampilkan di laman web kita.
-   + `<a>`, tag untuk menandakan teks yang mereferensikan ke suatu URL.
-   + `<p>`, tag untuk menampilkan teks dalam bentuk paragraf.
-   + `<h1, ...., h5>`, tag untuk menampilkan teks dalam ukuran tertentu.
-   + `<img>`, tag yang berguna untuk menampilkan sebuah gambar.
-   + `<ul>`, tag untuk membuat daftar yang tidak memiliki urutan (unordered list).
-   + `<li>`, tag untuk membuat daftar dengan sebuah urutan (ordered list).
-   + `<table>`, tag untuk membuat suatu table dengan baris dan kolom.
+   **Asynchronus programming** adalah pemrograman yang mana dalam satu waktu komputer dapat menjalankan beberapa operasi, sehingga tidak akan memakan waktu yang lama dibandingkan dengan synchronus programming
 
-3. Margin : Ruang di luar border
+2. **Event-driven programming** terjadi ketika komputer mengeksekusi sebuah program yang ditentukan oleh suatu peristiwa(event). Dalam konteks tugas ini, salah satu contoh event-driven programming adalah ketika kita menekan tombol untuk menampilkan sebuah form yang akan nantinya akan menambahkan data baru ke web kita.
 
-   Padding : Ruang antara konten dengan bordernya
+3. Penerapan asynchronus programming pada AJAX salah satunya adalah saat kita membuat HTTP request yang biasanya menggunakan method GET atau POST. Pada saat request ini dijalankan, program JavaScript tidak akan terhenti meskipun sedang menunggu respon dari server
 
-4. **Bootstrap**
-   Bootstrap merupakan framework yang lebih mudah digunakan bagi orang yang kurang memiliki pengalaman dalam menggunakan CSS. Bootstrap menyediakan banyak komponen yang dapat disesuaikan dengan mudah. Namun, jika ingin memodifikasi apa yang sudah disediakan, diperlukan adanya kustomisasi CSS lebih lanjut.
+4. **Fetch API** merupakan built-in JavaScript yang menggunakan promise-based, sehingga dapat mengatasi request secara asinkron. Fetch API sangatlah fleksibel karena dapat digunakan dalam berbagai HTTP request.
 
-   **Tailwind CSS**
-   Tailwind CSS merupakan framework yang mengutamakan utilitas, sehingga hal ini menyebabkan kita menjadi lebih fleksibel dalam membuat atau memodifikasi sesuatu, tetapi memerlukan pengetahuan CSS yang luas. Kita juga dapat dengan mudah melakukan kustomisasi terhadap komponen-komponen yang ingin kita modifikasi.
+   **JQuery** merupakan teknologi yang mudah untuk dipelajari dan digunakan. Sama seperti Fetch API, JQuery juga mampu menangani request secara asinkron.
 
-5. + Kustomisasi halaman login, register, dan tambah inventori
-
-      1. Menambahkan link yang menunjuk ke file CSS yang bersesuaiaan
-      ```html
-      <link rel="stylesheet" href="{% static 'login.css' %}">
-      <link rel="stylesheet" href="{% static 'register.css' %}">
-      <link rel="stylesheet" href="{% static 'myfirst.css' %}">
-      ```
-
-      2. Mengatur isi CSS sesuai dengan keinginan kita e.g login.css
-      ```css
-      ## login.css file
-      * {
-         background-color: #74FCB8;
-      }
-      ```
-
-      3. Kustomisasi halaman daftar item menjadi lebih menarik dengan menggunakan Bootstrap
-      ```css
-      ## main.css
-      * {
-         background-color: #44F69D;
-         margin: 0;
-         padding: 0;
-      }
-
-      .button-main:hover {
-         background-color: #B50126;
-         transition: .5s ease-in-out;
-      }
-
-      .card {
-         border: 1px solid #ccc;
-         border-radius: 5px;
-         margin: 20px;
-         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-         }
-
-      .custom-table {
-         width: 100%;
-         border-collapse: collapse;
-         margin: 0;
-         padding: 0;
-      }
-
-
-      .custom-table th, .custom-table td {
-         border: 1px solid #ccc;
-         padding: 8px;
-         text-align: left;
-      }
-
-      .custom-table th {
-         background-color: #f2f2f2;
-      }
-
-      ```
