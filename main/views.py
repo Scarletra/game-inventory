@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 from main.forms import ProductForm
 from django.urls import reverse
-from main.models import Product
+from main.models import Item
 from django.core import serializers
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages  
@@ -15,12 +15,16 @@ import datetime
 # Create your views here.
 @login_required(login_url='/login')
 def show_main(request):
-    products = Product.objects.filter(user=request.user)
+    items = Item.objects.filter(user=request.user)
+
+    sum_of_product = 0
+    for item in items:
+        sum_of_product += 1
 
     context = {
     'name': request.user.username,
-    'class': 'PBP F',
-    'products': products,
+    'amount_data' : f'You have {sum_of_product} items in your shopping list',
+    'Items': items,
     'last_login': request.COOKIES['last_login'],
     }
 
@@ -39,19 +43,19 @@ def create_product(request):
     return render(request, "create_product.html", context)
 
 def show_xml(request):
-    data = Product.objects.all()
+    data = Item.objects.all()
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = Product.objects.all()
+    data = Item.objects.all()
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_xml_by_id(request, id):
-    data = Product.objects.filter(pk=id)
+    data = Item.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json_by_id(request, id):
-    data = Product.objects.filter(pk=id)
+    data = Item.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def register(request):
@@ -87,7 +91,7 @@ def logout_user(request):
 
 def edit_product(request, id):
     # Get product berdasarkan ID
-    product = Product.objects.get(pk = id)
+    product = Item.objects.get(pk = id)
 
     # Set product sebagai instance dari form
     form = ProductForm(request.POST or None, instance=product)
@@ -102,14 +106,14 @@ def edit_product(request, id):
 
 def delete_product(request, id):
     # Get data berdasarkan ID
-    product = Product.objects.get(pk = id)
+    product = Item.objects.get(pk = id)
     # Hapus data
     product.delete()
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('main:show_main'))
 
 def get_product_json(request):
-    product_item = Product.objects.all()
+    product_item = Item.objects.all()
     return HttpResponse(serializers.serialize('json', product_item))
 
 
@@ -118,10 +122,11 @@ def add_product_ajax(request):
     if request.method == 'POST':
         name = request.POST.get("name")
         price = request.POST.get("price")
+        amount = request.POST.get("amount")
         description = request.POST.get("description")
         user = request.user
 
-        new_product = Product(name=name, price=price, description=description, user=user)
+        new_product = Item(name=name, price=price, amount=amount, description=description, user=user)
         new_product.save()
 
         return HttpResponse(b"CREATED", status=201)

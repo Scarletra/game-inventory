@@ -26,23 +26,12 @@
     </div>
   </nav>
 
-  <h5>Welcome again, {{name}}</h5>
+  <h5 class="m-3">Welcome again, {{name}}</h5>
+  <p class="m-3">{{amount_data}}</p>
 
     {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
 
-    <div class="d-flex justify-content-start d-grid gap-3 flex-wrap" id="product_table">
-        {% for product in products %}
-        <div class="card bg-danger bg-gradient border border-white" style="width: 15rem;">
-            <img src="https://th.bing.com/th/id/OIP.wYN6Vv4FwuPkt2u8YhvQFgHaFk?w=217&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">${item.fields.name} (Rp ${item.fields.price})</h5>
-                    <p class="card-text">${item.fields.description}</p>
-                    <a href="{% url 'main:edit_product' product.pk %}"><button type="button" class="btn btn-dark">Edit</button></a>
-                    <a href="{% url 'main:delete_product' product.pk %}"><button type="button" class="btn btn-dark">Delete</button></a>
-                    <p>${item.fields.date_added}</p>
-                </div>
-            </div>
-        {% endfor %}
+    <div class="d-flex justify-content-start d-grid gap-3 flex-wrap m-3" id="product_table">
     </div>
 
 
@@ -65,6 +54,10 @@
                             <input type="number" class="form-control" id="price" name="price"></input>
                         </div>
                         <div class="mb-3">
+                            <label for="amount" class="col-form-label">Amount:</label>
+                            <input type="number" class="form-control" id="amount" name="amount"></input>
+                        </div>
+                        <div class="mb-3">
                             <label for="description" class="col-form-label">Description:</label>
                             <textarea class="form-control" id="description" name="description"></textarea>
                         </div>
@@ -80,61 +73,18 @@
 
     <br />
 
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
-    <a href="{% url 'main:logout' %}">
-        <button>
-            Logout
-        </button>
-    </a>
-    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
+    <div class="m-3">
+        <h5>Sesi terakhir login: {{ last_login }}</h5>
+        <a class="btn btn-dark" href="{% url 'main:logout' %}"><button class="btn btn-dark">Logout</button></a>
+        <button type="button" class="btn btn-dark" href="{% url 'main:logout' %}">Logout</button>
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product</button>
+    </div>
 </div>
-
-{% endblock content %}
 
 <script>
     async function getProducts() {
         return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
     }
-
-    
-    async function refreshItems() {
-        document.getElementById("card-container").innerHTML = ""
-        const items = await getItems()
-        let htmlString = ""
-        items.forEach((item) => {
-          htmlString += `\n<div class="card col col-lg-4 mx-5 my-3" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="Gambar belum ada">
-                <div class="card-body">
-                    <h5 class="card-title">${item.fields.name}</h5>
-                    <p>Amount:</p>
-                    <a href="sub/${item.pk}">
-                        <input id="sub_button" type="submit" value="-" class=""/>
-                    </a>
-                    ${item.fields.amount}
-                    <a href="add/${item.pk}/">
-                        <input id="add_button" type="submit" value="+" />
-                    </a>
-                    <p class="card-text mt-3">Type: ${item.fields.type}</p>
-                    <p class="card-text">${item.fields.description}</p>
-                    <p class="card-text">Date added: ${item.fields.date_added}</p>
-                    <a href="edit-item/${item.pk}/">
-                      <button>
-                        Edit
-                      </button>
-                    </a>
-                    <a href="delete/${item.pk}/">
-                      <button>
-                        Delete
-                      </button>
-                    </a>
-                    <button type="button" class="btn btn-primary" id="button_delete" onclick="deleteItem(${item.pk}); return false;">Delete Item by AJAX</button>
-                </div>
-            </div>`
-        })
-        document.getElementById("card-container").innerHTML = htmlString;
-      }
-
-      refreshItems()
 
     async function refreshProducts() {
         document.getElementById("product_table").innerHTML = ""
@@ -146,8 +96,8 @@
                 <div class="card-body">
                     <h5 class="card-title">${item.fields.name} (Rp ${item.fields.price})</h5>
                     <p class="card-text">${item.fields.description}</p>
-                    <a href="{% url 'main:edit_product' product.pk %}"><button type="button" class="btn btn-dark">Edit</button></a>
-                    <a href="{% url 'main:delete_product' product.pk %}"><button type="button" class="btn btn-dark">Delete</button></a>
+                    <a href="#"><button type="button" class="btn btn-dark">Edit</button></a>
+                    <a href="#"><button type="button" class="btn btn-dark">Delete</button></a>
                     <p>${item.fields.date_added}</p>
                 </div>
             </div>` 
@@ -170,3 +120,4 @@
 
     document.getElementById("button_add").onclick = addProduct
 </script>
+{% endblock content %}
