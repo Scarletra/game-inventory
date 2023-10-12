@@ -2,11 +2,10 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'main.css' %}">
 {% block content %}
-<div class="bg-secondary">
 <nav class="navbar navbar-expand-lg bg-dark bg-gradient">
     <div class="container-fluid">
       <a class="navbar-brand text-warning" href="#">
-            <img src="https://th.bing.com/th/id/OIP.wYN6Vv4FwuPkt2u8YhvQFgHaFk?w=217&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Grwotopia shop" width="35" height="30">
+            <img src="https://1.bp.blogspot.com/-iWcZVCPalEA/XGmTkvD2GdI/AAAAAAAAAQY/-5i3HHd9gTICcqw8_dw9DfX04WW00TEoACLcBGAs/s200/growtopia-world-lock.png" alt="Grwotopia shop" width="35" height="30">
             Growtopia Shop Page
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -79,7 +78,6 @@
         <button type="button" class="btn btn-dark" href="{% url 'main:logout' %}">Logout</button>
         <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product</button>
     </div>
-</div>
 
 <script>
     async function getProducts() {
@@ -94,7 +92,8 @@
             htmlString += `\n<div class="card bg-danger bg-gradient border border-white" style="width: 15rem;">
             <img src="https://th.bing.com/th/id/OIP.wYN6Vv4FwuPkt2u8YhvQFgHaFk?w=217&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">${item.fields.name} (Rp ${item.fields.price})</h5>
+                    <h5 class="card-title">${item.fields.name}</h5>
+                    <p class="card-text">Price: ${item.fields.price} || Amount: ${item.fields.amount}</p>
                     <p class="card-text">${item.fields.description}</p>
                     <a href="#"><button type="button" class="btn btn-dark">Edit</button></a>
                     <a href="#"><button type="button" class="btn btn-dark">Delete</button></a>
