@@ -1,75 +1,172 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Growtopia Shop Page</title>
-</head>
-<body>
-    {% block content %}
-
-    <div class="body">
-        <h1>Growtopia Shop Page</h1>
-
-        <h2>Owner:</h2>
-        <p>{{Name}}</p>
-
-        <h2>Class:</h2>
-        <p>{{Amount}}</p>
-
-        <h2>Student ID:</h2>
-        <p>{{Description}}</p>
-
-        <h2>Current data:</h2>
-        <p>{{Message}}</p>
-
-    <div class="card">
-    <div class="card-body">
-        <table class="custom-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Description</th>
-                    <th>Add/Remove item</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in Items %}
-                <div class="card w-50">
-                    <div class="card-body">
-                      <h5 class="card-title">{{item.name}}</h5>
-                      <p class="card-text">{{item.description}}</p>
-                      <a href="#" class="btn btn-primary">Button</a>
-                    </div>
-                  </div>
-                    <tr>
-                        <td>{{item.name}}</td>
-                        <td>{{item.amount}}</td>
-                        <td>{{item.description}}</td>
-                        <td> 
-                            <a href="{% url 'main:decrement_item' item.id %}"><button>-</button></a>
-                            <a href="{% url 'main:delete_item' item.id %}"><button>Delete</button></a>
-                            <a href="{% url 'main:increment_item' item.id %}"><button>+</button></a>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+<link rel="stylesheet" href="{% static 'main.css' %}">
+{% block content %}
+<div class="bg-secondary">
+<nav class="navbar navbar-expand-lg bg-dark bg-gradient">
+    <div class="container-fluid">
+      <a class="navbar-brand text-warning" href="#">
+            <img src="https://th.bing.com/th/id/OIP.wYN6Vv4FwuPkt2u8YhvQFgHaFk?w=217&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Grwotopia shop" width="35" height="30">
+            Growtopia Shop Page
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active text-warning" aria-current="page" href="#">Home</a>
+          </li>
+          <li>
+            <a class="nav-link active text-warning bg-white rounded-pill" aria-current="page" href="{% url 'main:create_product' %}">Create product</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </div>
+  </nav>
+
+  <h5>Welcome again, {{name}}</h5>
+
+    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+
+    <div class="d-flex justify-content-start d-grid gap-3 flex-wrap" id="product_table">
+        {% for product in products %}
+        <div class="card bg-danger bg-gradient border border-white" style="width: 15rem;">
+            <img src="https://th.bing.com/th/id/OIP.wYN6Vv4FwuPkt2u8YhvQFgHaFk?w=217&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${item.fields.name} (Rp ${item.fields.price})</h5>
+                    <p class="card-text">${item.fields.description}</p>
+                    <a href="{% url 'main:edit_product' product.pk %}"><button type="button" class="btn btn-dark">Edit</button></a>
+                    <a href="{% url 'main:delete_product' product.pk %}"><button type="button" class="btn btn-dark">Delete</button></a>
+                    <p>${item.fields.date_added}</p>
+                </div>
+            </div>
+        {% endfor %}
     </div>
 
 
-        <br />
-
-        <a class="button-main" href="{% url 'main:create_product' %}"><button>Add New Product</button></a>
-        <h5>Sesi terakhir login: {{ last_login }}</h5>
-        <a class="button-main" href="{% url 'main:logout' %}"><button>Logout</button></a>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="price" class="col-form-label">Price:</label>
+                            <input type="number" class="form-control" id="price" name="price"></input>
+                        </div>
+                        <div class="mb-3">
+                            <label for="description" class="col-form-label">Description:</label>
+                            <textarea class="form-control" id="description" name="description"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>
+                </div>
+            </div>
+        </div>
     </div>
-    
+
+    <br />
+
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
+    <a href="{% url 'main:logout' %}">
+        <button>
+            Logout
+        </button>
+    </a>
+    <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
+</div>
+
 {% endblock content %}
-</body>
-</html>
 
+<script>
+    async function getProducts() {
+        return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+    }
 
+    
+    async function refreshItems() {
+        document.getElementById("card-container").innerHTML = ""
+        const items = await getItems()
+        let htmlString = ""
+        items.forEach((item) => {
+          htmlString += `\n<div class="card col col-lg-4 mx-5 my-3" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="Gambar belum ada">
+                <div class="card-body">
+                    <h5 class="card-title">${item.fields.name}</h5>
+                    <p>Amount:</p>
+                    <a href="sub/${item.pk}">
+                        <input id="sub_button" type="submit" value="-" class=""/>
+                    </a>
+                    ${item.fields.amount}
+                    <a href="add/${item.pk}/">
+                        <input id="add_button" type="submit" value="+" />
+                    </a>
+                    <p class="card-text mt-3">Type: ${item.fields.type}</p>
+                    <p class="card-text">${item.fields.description}</p>
+                    <p class="card-text">Date added: ${item.fields.date_added}</p>
+                    <a href="edit-item/${item.pk}/">
+                      <button>
+                        Edit
+                      </button>
+                    </a>
+                    <a href="delete/${item.pk}/">
+                      <button>
+                        Delete
+                      </button>
+                    </a>
+                    <button type="button" class="btn btn-primary" id="button_delete" onclick="deleteItem(${item.pk}); return false;">Delete Item by AJAX</button>
+                </div>
+            </div>`
+        })
+        document.getElementById("card-container").innerHTML = htmlString;
+      }
+
+      refreshItems()
+
+    async function refreshProducts() {
+        document.getElementById("product_table").innerHTML = ""
+        const products = await getProducts()
+        let htmlString = ''
+        products.forEach((item) => {
+            htmlString += `\n<div class="card bg-danger bg-gradient border border-white" style="width: 15rem;">
+            <img src="https://th.bing.com/th/id/OIP.wYN6Vv4FwuPkt2u8YhvQFgHaFk?w=217&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${item.fields.name} (Rp ${item.fields.price})</h5>
+                    <p class="card-text">${item.fields.description}</p>
+                    <a href="{% url 'main:edit_product' product.pk %}"><button type="button" class="btn btn-dark">Edit</button></a>
+                    <a href="{% url 'main:delete_product' product.pk %}"><button type="button" class="btn btn-dark">Delete</button></a>
+                    <p>${item.fields.date_added}</p>
+                </div>
+            </div>` 
+        })
+        
+        document.getElementById("product_table").innerHTML = htmlString
+    }
+
+    refreshProducts()
+
+    function addProduct() {
+        fetch("{% url 'main:add_product_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshProducts)
+
+        document.getElementById("form").reset()
+        return false
+    }
+
+    document.getElementById("button_add").onclick = addProduct
+</script>
