@@ -88,7 +88,7 @@ Tautan aplikasi: https://growtopia-shop.adaptable.app/
             </div>
         </div>
     </div>
-      ```
+   
 
       Menambahkan fungsi baru pada views.py
       ```python
