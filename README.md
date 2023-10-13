@@ -50,6 +50,24 @@ Tautan aplikasi: https://growtopia-shop.adaptable.app/
 
       ```
 
+      ```python
+         @csrf_exempt
+         def add_product_ajax(request):
+            if request.method == 'POST':
+               name = request.POST.get("name")
+               price = request.POST.get("price")
+               amount = request.POST.get("amount")
+               description = request.POST.get("description")
+               user = request.user
+
+               new_product = Item(name=name, price=price, amount=amount, description=description, user=user)
+               new_product.save()
+
+               return HttpResponse(b"CREATED", status=201)
+
+            return HttpResponseNotFound()
+      ```
+
    + **AJAX POST**
       Menambahkan kode untuk form dan button pada HTML dan juga menambahkan script
       ```html
