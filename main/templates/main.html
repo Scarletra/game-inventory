@@ -86,9 +86,9 @@
 
     async function refreshProducts() {
         document.getElementById("product_table").innerHTML = ""
-        const products = await getProducts()
+        const kumpulanBuku = await getProducts()
         let htmlString = ''
-        products.forEach((item) => {
+        kumpulanBuku.forEach((buku) => {
             htmlString += `\n<div class="card bg-danger bg-gradient border border-white" style="width: 15rem;">
             <img src="https://th.bing.com/th/id/OIP.wYN6Vv4FwuPkt2u8YhvQFgHaFk?w=217&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7" class="card-img-top" alt="...">
                 <div class="card-body">
